@@ -29,7 +29,7 @@ export default class List extends React.Component {
     if (props) {
       props.forEach(element => {
         this.state.users.forEach(data => {
-          if (element.value == data.id) {
+          if (element.value == data.name) {
             selecteds.push(data);
           }
         });
@@ -47,7 +47,7 @@ export default class List extends React.Component {
         <Select
           value={this.state.selecteds.map(data => {
             return {
-              value: data.id,
+              value: data.name,
               label: (
                 <div>
                   <img src={logo} width="30px" height="30px" /> {data.name}
@@ -57,7 +57,7 @@ export default class List extends React.Component {
           })}
           options={this.state.users.map(data => {
             return {
-              value: data.id,
+              value: data.name,
               label: (
                 <div>
                   <img src={logo} width="30px" height="30px" /> {data.name}
@@ -75,6 +75,7 @@ export default class List extends React.Component {
             };
           })}
           isMulti
+          isSearchable
           onChange={this.samiksha}
         />
       </div>
